@@ -7,7 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="custom-container">
     <div class="row">
-        <form action="" method="post">
+        <form action="">
             <input type="hidden" name="_method" value="choose_doctor">
             <div class="form-group">
                 <div class="row ml-2">
@@ -28,7 +28,7 @@
         <c:if test="${not empty doctor}" >
             <% doctor = (Doctor) request.getAttribute("doctor");%>
                 <p>Bạn đang xem lịch của bác sĩ ${doctor.getName()}</p>
-                <form class="ml-5 mr-5" action="" method="post">
+                <form class="ml-5 mr-5" action="">
                     <input type="hidden" name="_method" value="get_date">
                     <input type="hidden" name="doctor_id" value="${doctor.getId()}">
                     <div class="row">
@@ -95,7 +95,7 @@
                             } else {
                                 if (table[i][j].startsWith("doctor schedule|")){ // có lịch chuwa có hẹn camm
                                     style = "style='background-color: #FFA500';color : black;";
-                                    out.print("<td title='Nhấn để xoá' " + style + "><a href='"+request.getContextPath()+"/admin/delete-doctor-schedule?id="+ table[i][j].split("\\|")[1] +"'>chưa có hẹn</a></td>");
+                                    out.print("<td title='Nhấn để xoá' " + style + "><a href='"+request.getContextPath()+"/admin/delete-doctor-schedule?id="+ table[i][j].split("\\|")[1] +"&url="+request.getAttribute("url")+"'>chưa có hẹn</a></td>");
                                 } else if (table[i][j].startsWith("patient app|")){ // có hẹn
                                     String status = table[i][j].split("\\|")[2];
                                     if (status.equals("not_yet")){// chưa khám xanh dương

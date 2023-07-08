@@ -10,7 +10,7 @@
     </div>
     <c:if test="${not empty success}">
         <div class="alert alert-success">
-            ${success}
+                ${success}
         </div>
     </c:if>
     <c:if test="${not empty error}">
@@ -18,51 +18,54 @@
                 ${error}
         </div>
     </c:if>
-    <form action="" method="post" id="form">
-        <div class="row">
-            <div class="form-group mb-1 mt-1 col-md-6">
-
-                <div class="row">
-                    <div class="col-md-4" style="position: relative;">
-                        <img style="border-radius: 50%;width: 200px; height: 200px; object-fit: cover"
-                             src="${pageContext.request.contextPath}/${doctor.image}" alt="">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="col-md-12 mt-3">
-                                <h2 class="font-weight-bold">${doctor.name}</h2>
-                                <h3>Chuyên khoa: ${doctor.speciality_name}</h3>
-                                <h3>Trình độ : ${doctor.degree}</h3>
-                                <h3>Kinh nghiệm : ${doctor.experience} năm</h3>
-                                <h3>Liên hệ : ${doctor.phone}</h3>
-                            </div>
+        <form action="" method="post" id="form">
+    <div class="row">
+        <div style="width: 50%">
+            <div class="row">
+                <div class="col-md-4" style="position: relative;">
+                    <img style="border-radius: 50%;width: 200px; height: 200px; object-fit: cover"
+                         src="${pageContext.request.contextPath}/${doctor.image}" alt="">
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-12 mt-3">
+                            <h2 class="font-weight-bold">${doctor.name}</h2>
+                            <h3>Chuyên khoa: ${doctor.speciality_name}</h3>
+                            <h3>Trình độ : ${doctor.degree}</h3>
+                            <h3>Kinh nghiệm : ${doctor.experience} năm</h3>
+                            <h3>Liên hệ : ${doctor.phone}</h3>
                         </div>
                     </div>
                 </div>
-                <label for="note">Lời nhắn</label><br>
-                <textarea required class="form-control" name="note" id="note" rows="5"></textarea>
-                <div class="form-group">
-                    <label>Thời gian bạn chọn</label><br>
-                    từ
-                    <input class="form-control" readonly type="datetime-local" id="selected_time_start">
-                    đến
-                    <input class="form-control" readonly type="datetime-local" id="selected_time_end">
-                </div>
-                <input type="hidden" name="doctor_schedule_id" id="doctor_schedule_id">
-                <button class="btn btn-block mt-2">Submit</button>
             </div>
-            <div class="col-md-6">
-                <div class="col-md-12">
-                    <div class="form-group ">
-                        <label for="dateInput">Chọn ngày</label>
-                        <input type="date" id="dateInput">
+            <div class="row">
+                <div class="col-md-10 text-left">
+                    <label for="note">Lời nhắn</label><br>
+                    <textarea required class="form-control" name="note" id="note" rows="5"></textarea>
+                    <div class="form-group">
+                        <label>Thời gian bạn chọn</label><br>
+                        từ
+                        <input class="form-control" readonly type="datetime-local" id="selected_time_start">
+                        đến
+                        <input class="form-control" readonly type="datetime-local" id="selected_time_end">
                     </div>
+                    <input type="hidden" name="doctor_schedule_id" id="doctor_schedule_id">
+                    <button class="btn btn-block mt-2">Submit</button>
                 </div>
-                <div class="col-md-12">
-                    <div class="col-md-6" id="available">
+            </div>
+        </div>
+        <div style="width: 50%">
+                <div class="row">
+                    <div style="width: 40%" class="m-2">
+                        <div class="form-group ">
+                            <label for="dateInput">Chọn ngày</label>
+                            <input type="date" id="dateInput">
+                        </div>
+                        <div id="available">
 
+                        </div>
                     </div>
-                    <div class="col-md-6" style="float: right;">
+                    <div style="width: 50%">
                         <c:forEach items="${review}" var="item">
                             <c:forEach begin="1" end="${item.rating}">
                                 <i class="bi bi-star-fill" style="color: #ffcc00"></i>
@@ -73,9 +76,9 @@
                         </c:forEach>
                     </div>
                 </div>
-            </div>
         </div>
-    </form>
+    </div>
+        </form>
     <%--<button class="btn btn-info" data-toggle="modal" data-target="#addModel">Thêm lịch</button>
     <div class="modal fade" id="addModel" tabindex="-1" role="dialog" aria-labelledby="addModel" aria-hidden="true">
         <div class="modal-dialog" role="document">

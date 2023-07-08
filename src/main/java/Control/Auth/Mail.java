@@ -26,12 +26,12 @@ public class Mail {
         properties.put("mail.smtp.starttls.enable", "true"); // if using TLS
         Session session = Session.getInstance(properties, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("phongkhamantam23@gmail.com", "mjfzwgjyhgjexbhs");
+                return new PasswordAuthentication("tranquangminh116@gmail.com", "iahskjpdwuvcyzym");
             }
         });
         try {
             MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("phongkhamantam23@gmail.com", "PHÒNG KHÁM AN TÂM"));
+            message.setFrom(new InternetAddress("tranquangminh116@gmail.com", "PHÒNG KHÁM AN TÂM"));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(mailto));
             message.setSubject("Xác nhận tài khoản.");
             String html = "<h1>Xin chào " + name + ", chào mừng bạn đến với An Tâm. Để kích hoạt tài khoản vui lòng nhấn vào <a href='" + host + "/active/" + uuid + "'>đây.</a></h1>";
